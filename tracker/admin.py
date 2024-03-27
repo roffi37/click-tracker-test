@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from tracker.models import Tracker, URL
+
+admin.site.register(Tracker)
+admin.site.register(URL)
