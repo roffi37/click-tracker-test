@@ -1,14 +1,12 @@
 from django.contrib import admin
-from django.urls import path, include
-from rest_framework.routers import DefaultRouter
+from django.urls import path
 
 from tracker import views
 
-router = DefaultRouter()
-router.register(r"models", views.ModelViewSet)
-
 
 urlpatterns = [
-    path("", include(router.urls)),
+    path("track/<clicked_url>/", views.track_click, name="track_click"),
+    path("track/<clicked_url>/origin/", views.track_click, name="track_click_origin"),
+    path("thank-you/", views.thank_you_page, name="thank_you_page"),
     path('admin/', admin.site.urls),
 ]
