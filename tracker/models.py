@@ -8,7 +8,7 @@ class Tracker(models.Model):
     url = models.URLField()
 
     def __str__(self):
-        return f"{self.ip_address}"
+        return f"{self.ip_address} on {self.browser[:10]} at {str(self.clicked_at)[:16]} to {self.url}"
 
 
 class URL(models.Model):
@@ -16,4 +16,4 @@ class URL(models.Model):
     short_url = models.URLField()
 
     def __str__(self):
-        return f"{self.url}"
+        return f"Origin: {self.url} | Short: {self.short_url}"
